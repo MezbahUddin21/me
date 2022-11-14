@@ -1,38 +1,434 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background: #000!important;
+  color: #fff!important;
+  font-family: 'Josefin Sans', cursive!important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar{
+  width: 6px;
+  background: #000000;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(rgba(128, 103, 103, 0), rgb(12, 30, 97)) ;
+  border-radius: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navbar{
+  background: rgba(87, 87, 87, 0);
+  color: #fff;
+  position: fixed!important;
+  width: 100%!important;
+  top: 0!important;
+  z-index: 6;
+  height: 90px;
+  transition: all 0.3s;
+
+}
+.navbar.scrolled{
+  height: 60px;
+  transition: all 0.3s;
+  background: #001239;
+
+}
+
+.navbar .logo{
+  color: #fff;
+  font-size: 25px;
+}
+.navbar .logo:hover{
+  color: #fff;
+}
+
+.navbar .nav-link{
+  color: rgb(205, 205, 205)!important;
+  padding: 10px;
+
+}
+
+
+.navbar .navbar-btn {
+  outline: 2px solid #fff!important;
+  background-color: rgba(255, 255, 255, 0)!important;
   color: white;
+  border-radius: 50px;
+  padding: 3px 15px 3px 15px!important;
+  position: relative;
+  overflow: hidden;
+  margin-top: -5px;
+  transition-duration: 0.5s;
+  /* background: #ffffff13!important;
+  padding: 8px 25px!important;
+  margin-left: 30px!important;
+  border-radius: 50px!important;
+  color: #fff!important;
+  transition: all 0.5s;
+  position: relative; */
 }
 
-.App-link {
-  color: #61dafb;
+/* animation of menu button */
+.navbar-btn::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  background-color: #e1258649!important;
+  z-index: 5!important;
+  transition-duration: 0.5s;
+}
+/* animation of menu button */
+.navbar-btn::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  height: 100%;
+  width: 0;
+  background-color: #e1258649!important;
+  z-index: 5!important;
+  transition-duration: 0.5s;
 }
 
-@keyframes App-logo-spin {
+/* hover animation of menu button */
+.navbar-btn:hover::before,
+.navbar-btn:hover::after
+{
+  width: 100%;
+  transition: all 1s ease;
+  z-index: 5!important;
+  
+}
+.navbar-btn span{
+  z-index: 1000!important;
+}
+
+.navbar .active{
+  color: rgb(255, 255, 255)!important;
+}
+
+
+.navbar-toggler-icon{
+  color: #fff!important;
+  background-color: rgba(71, 71, 71, 0.954);
+  border-radius: 5px;
+}
+
+@media(max-width:991px){
+
+.navbar-nav{
+
+  background-color: rgb(20, 20, 20);
+  padding: 10px 0 15px 0;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+}
+
+
+/* banner section */
+.banner-section{
+  min-height: 110vh;
+  padding: 0 0 50px!important;
+  width: 100%;
+  background: url('./img/hero.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+  
+}
+.banner-section .hero-text{
+  padding-top: 100px;
+  
+}
+.banner-section .title-box{
+  background: rgb(255,106,106);
+  background: linear-gradient(90deg, rgba(106, 41, 41, 0.864) 4%, rgba(3,3,61,0.8300362381280637) 53%, rgba(2,49,104,1) 100%, rgba(0,212,255,0.8132295154389881) 100%);
+  padding: 5px;
+  border: 1px solid white;
+  
+}
+
+
+.banner-section .heroPartImg{
+  position:relative;
+  animation:glide 1.5s ease-in-out alternate infinite;
+}
+
+@keyframes glide  {
   from {
+     left:0px;
+     top:0px;
+  }
+  
+  to {
+     left:0px;
+     top:20px;
+  }
+
+}
+
+
+/* skills section */
+.skills-section{
+  position: relative;
+  width: 100%;
+  padding: 20px 0 100px 0;
+  background: linear-gradient(90deg, #000917 4%, #0C0617 53%, #000917 100%, rgba(0,212,255,0.8132295154389881) 100%);
+}
+
+.skills-container{
+  width: 100%;
+  margin-top: -100px;
+  border-radius: 40px;
+  background: rgb(1, 2, 18);
+  padding: 30px 0 40px 0;
+}
+
+
+.react-multiple-carousel__arrow{
+  background-color: rgba(0, 0, 0, 0)!important;
+  color: #fff!important;
+  font-weight: bold;
+}
+
+.circle-progressbar-box{
+  min-height: 200px;
+  width: 180px;
+  padding: 20px;
+
+}
+
+.react-multi-carousel-track{
+  padding:0 0px 0 70px!important;
+}
+
+
+
+/* projects section */
+
+.projects-section{
+  min-height: 300px;
+  padding: 100px 0 120px 0!important;
+}
+
+
+.react-tabs__tab-list {
+  border: 1px solid rgb(70, 70, 70)!important;
+  border-radius: 30px;
+  margin: 0 0 10px;
+  padding: 0;
+  overflow: hidden!important;
+}
+
+.react-tabs__tab{
+  width: 100%;
+  transition: all 0.3s!important;
+  border: 0px!important;
+  color: rgba(0,212,255,0.8132295154389881)!important;
+}
+
+.react-tabs__tab--selected{
+  transition: all 0.3s!important;
+  background: linear-gradient(90deg, rgba(7, 6, 40, 0.864) 4%, rgba(3,3,61,0.8300362381280637) 53%, rgba(2,49,104,1) 100%, rgba(0,212,255,0.8132295154389881) 100%)!important;
+  border: 0px!important;
+  color: #fff!important;
+ 
+}
+
+.img-col{
+  padding: 10px;
+  border-radius: 10px!important;
+}
+
+.img-box{
+  position: relative;
+  border: 2px solid white;
+  border-radius: 30px;
+  overflow: hidden;
+  height:270px;
+
+
+}
+
+.project-img{
+  height: 100%!important;
+  width: 100%!important;
+}
+.over-box{
+  text-align: center;
+  position: absolute;
+  top: 0;
+  background: #14489b3b;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.3s;
+
+}
+.img-box:hover .over-box{
+  position: absolute;
+  top: 0;
+  padding-top: 100px;
+  background: #0000007a;
+  height: 100%;
+  width: 100%;
+  transition: all 0.3s;
+
+}
+
+
+/* contact-section section */
+.contact-section {
+  padding:100px 0 130px 0;
+  color: #ffffff;
+  background:  #050817;
+}
+
+
+
+
+
+.contact-section .email-form {
+  width: 100%;
+  padding: 30px;
+  background: #040B14;
+  box-shadow: 0 0 20px 0 rgba(72, 72, 72, 0.12);
+}
+
+.contact-section .email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact-section .email-form .form-group label{
+  display: none !important;
+}
+
+.contact-section .email-form .form-control{
+  background-color: rgba(0, 0, 0, 0.228);
+  color: rgba(255, 255, 255, 0.998);
+}
+
+.contact-section .email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact-section .email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact-section .email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.contact-section .email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact-section .email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact-section .email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact-section .email-form input, .contact-section .email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.contact-section .email-form input {
+  height: 44px;
+}
+
+.contact-section .email-form textarea {
+  padding: 10px 12px;
+}
+
+.contact-section .email-form button[type="submit"] {
+  background-image: linear-gradient(to right,#061123, rgb(51, 50, 50));
+  border: 0;
+  padding: 8px 24px;
+  color: #ffffff;
+  transition: 0.5s;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+.contact-section .email-form button[type="submit"]:hover {
+  background-image: linear-gradient(to right,rgb(51, 50, 50), #061123);
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+ .contact-img{
+  position:relative;
+  animation:glide 1.5s ease-in-out alternate infinite;
+}
+
+@keyframes glide  {
+  from {
+     left:0px;
+     top:0px;
+  }
+  
+  to {
+     left:0px;
+     top:20px;
+  }
+
 }
